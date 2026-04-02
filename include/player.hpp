@@ -5,11 +5,13 @@
 #include <QObject>
 
 class Player : public QObject, public QGraphicsRectItem {
+  Q_OBJECT
+
  public:
-  Player();
+  Player(QGraphicsItem* parent = nullptr);
 
  public slots:
-  void update();
+  void updateState();
 
  protected:
   void keyPressEvent(QKeyEvent* event) override;

@@ -2,16 +2,14 @@
 
 #include <QBrush>
 
-Player::Player() {
+Player::Player(QGraphicsItem* parent)
+    : QObject(), QGraphicsRectItem(parent), velocityY(0), onGround(false) {
   setRect(0, 0, 30, 60);
   setBrush(Qt::red);
   setPos(300, 0);
 
   setFlag(QGraphicsItem::ItemIsFocusable);
   setFocus();
-
-  velocityY = 0;
-  onGround = false;
 }
 
 void Player::keyPressEvent(QKeyEvent* event) {
@@ -26,7 +24,7 @@ void Player::keyPressEvent(QKeyEvent* event) {
   }
 }
 
-void Player::update() {
+void Player::updateState() {
   velocityY += 1;
   onGround = false;
   moveBy(0, velocityY);

@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
   view.show();
 
   QTimer timer;
-  QObject::connect(&timer, &QTimer::timeout, &player, &Player::update);
+  QObject::connect(&timer, &QTimer::timeout, &player, &Player::updateState);
   timer.start(33);
 
   return app.exec();
