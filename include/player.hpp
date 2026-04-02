@@ -8,11 +8,11 @@ class Player : public QObject, public QGraphicsRectItem {
  public:
   Player();
 
- protected:
-  void keyPressEvent(QKeyEvent* event) override;
-
  public slots:
   void update();
+
+ protected:
+  void keyPressEvent(QKeyEvent* event) override;
 
  private:
   int velocityY;
